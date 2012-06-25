@@ -1,4 +1,10 @@
 <%= div_for post do %>
-  <h1><%=  post.title %></h1>
-  <%=  post.body %>
+  <h1 id="link"><%= link_to(post.title,post) %></h1>
+  
+  <%=  raw(post.body) %>
+  <div class="row">
+    <span class="created_at span9">
+      <%= post.created_at.to_s(:short) %>
+    </span>
+  </div>
 <% end %>

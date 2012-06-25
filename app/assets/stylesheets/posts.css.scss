@@ -7,10 +7,20 @@
 }
 
 .post {
-  word-wrap: break-word;
+  
   text-align: left;
   margin-top: 30px;
+
 }
 .post h1 {
   text-align: center;
 }
+.post .created_at {
+  text-align: right;
+
+}
+
+#link a{
+  color: black !important;
+}
+.twtr-ft span a {display: none !important; }

@@ -1,10 +1,16 @@
-<%- model_class = Post.new.class -%>
-<div class="text1">
-  
-</div>
 
 <%= render @posts %>
-  
-<%= link_to t('.new', :default => t("helpers.links.new")),
+ 
+ <%= content_for :infos do %>
+   
+  <% end %>
+
+
+<%= content_for :adminlinks do %>
+  <li><%= link_to('Neuer Eintrag',
             new_post_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-success btn-mini') %>
+  </li>
+
+<% end %>
+<%= paginate @posts %>

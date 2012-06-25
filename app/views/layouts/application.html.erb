@@ -11,6 +11,13 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "ckeditor/init" %>
+
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <link href="images/favicon.ico" rel="shortcut icon">
@@ -28,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Larsblog</a>
+          <a class="brand" href="#">Lieutenant! Lieutenant!</a>
           <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to "Link1", "/path1"  %></li>
@@ -41,39 +48,71 @@
     </div>
 
     <div class="container">
-      <div class="content">
-        <div class="row">
-           <div class="span9">
-            <div class="row">
+      <div class="row">
+        <div class="span9 well" style="margin-left: -1px; padding-right: 7px; margin-right: -16px; background-color: #FBFAFF; padding-left: 7px; ">
+          
+          <img width ="920px" src =  "http://www.imgbox.de/users/public/images/d7LXUW7cVj.jpg">
+          <div style=" word-wrap: normal ;">
+            <%= yield %>
+            
 
-              <img class="span9" src = "http://www.idencom.com/eng/vertrieb/gate_firmen/img2/schlegel.jpg">
-            </div>
-              <%= yield %>
-            </div>
-            <div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Sidebar</h3>
-                <ul class="nav nav-list">
-                  <li class="nav-header">Sidebar</li>
-                  <li><%= link_to "Link1", "/path1"  %></li>
-                  <li><%= link_to "Link2", "/path2"  %></li>
-                  <li><%= link_to "Link3", "/path3"  %></li>
-                </ul>
-              </div><!--/.well -->
-            </div><!--/span-->
-        </div><!--/row-->
-      </div><!--/content-->
+          </div>
+        </div><!--/span-->
+        <div class="span3">
+          <div class="well" >
+           
+              <%= yield :infos %>
+              <% begin %>
+                 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+    shell: {
+      background: '#F5F5F5',
+      color: 'black'
+    },
+    tweets: {
+      background: '#F5F5F5',
+      color: 'black',
+      links: 'blue'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('analotherobot').start();
+</script>
 
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
 
-    </div> <!-- /container -->
+              <% rescue Exception=> message %>
+              <% message %>
+              <% end %>
+          
+          </div>  
+          <div class="well">
+            <ul class="unstyled">
+              <%= yield :adminlinks %>
+            </ul>
+          </div>
+        </div>
+      </div><!--/row--> 
+    </div> <!-- /container --> 
+          
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+      
+
+    
+
+
 
   </body>
 </html>
