@@ -9,4 +9,7 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "..."
+    time:
+      formats:
+        oi: "%d%d/%m%m/%y%y%y%y"
 

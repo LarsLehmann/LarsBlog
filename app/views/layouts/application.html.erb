@@ -51,7 +51,7 @@
       <div class="row">
         <div class="span9 well" style="margin-left: -1px; padding-right: 7px; margin-right: -16px; background-color: #FBFAFF; padding-left: 7px; ">
           
-          <img width ="920px" src =  "http://www.imgbox.de/users/public/images/d7LXUW7cVj.jpg">
+          <img width ="940px" src =  "http://www.imgbox.de/users/public/images/d7LXUW7cVj.jpg">
           <div style=" word-wrap: normal ;">
             <%= yield %>
             
@@ -59,12 +59,13 @@
           </div>
         </div><!--/span-->
         <div class="span3">
-          <div class="well" >
+          <div  style="background-color: white;" >
            
               <%= yield :infos %>
               <% begin %>
                  <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
+<div class="well">
+<script> 
 new TWTR.Widget({
   version: 2,
   type: 'profile',
@@ -89,8 +90,13 @@ new TWTR.Widget({
     live: true,
     behavior: 'all'
   }
-}).render().setUser('analotherobot').start();
+}).render().setUser('LieutenantBand').start();
 </script>
+</div>
+<div class="well">
+<iframe width="auto" height="295" style="position: relative; left: 39px; display: block; width: 150px; height: 295px; text-align: center;" src="http://bandcamp.com/EmbeddedPlayer/v=2/album=232232556/size=tall/bgcol=F5F5F5/linkcol=4285BB/" allowtransparency="true" frameborder="0"><a href="http://lieutenants.bandcamp.com/album/demo">Demo by Lieutenant! Lieutenant!</a></iframe>
+</div>
+
 
 
               <% rescue Exception=> message %>

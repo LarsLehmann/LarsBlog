@@ -4,7 +4,12 @@
   <%=  raw(post.body) %>
   <div class="row">
     <span class="created_at span9">
-      <%= post.created_at.to_s(:short) %>
+      <%= link_to(post.comments.count.to_s + ' Kommentare      ',"/posts/#{post.id.to_s}#Kom" ) %>&nbsp;&nbsp;&nbsp;
+        <%= post.created_at.to_s(:long) %>
+
+       
+      
+
     </span>
   </div>
 <% end %>

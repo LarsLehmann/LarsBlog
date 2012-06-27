@@ -6,3 +6,6 @@ de:
       previous: "&lsaquo; Zurück"
       next: "Weiter &rsaquo;"
       truncate: "..."
+  date:
+    formats:
+      oi: "%d%d/%m%m/%y%y%y%y"
