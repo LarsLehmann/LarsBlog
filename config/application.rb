@@ -59,5 +59,7 @@ module Larsblog
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.rakismet.key = 'dcf4883216f0'
+    config.rakismet.url = 'http://192.168.18.128'
   end
 end

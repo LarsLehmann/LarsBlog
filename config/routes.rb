@@ -1,12 +1,21 @@
 Larsblog::Application.routes.draw do 
 
 
-  mount Ckeditor::Engine => '/ckeditor'
+ 
 
+  devise_for :users
+
+  mount Ckeditor::Engine => '/ckeditor'
+  
   resources :posts do
     resources :comments
-  end
+    resources :devise
 
+
+  end
+  
+  
+  match 'login' => 'posts#login'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

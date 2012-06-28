@@ -30,6 +30,8 @@ gem "ckeditor", "3.7.1"
 gem "paperclip"
 gem 'kaminari'
 gem 'twitter'
+gem "rakismet"
+gem 'devise'
 
 
 

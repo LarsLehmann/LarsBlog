@@ -1,0 +1,21 @@
+<div style="margin-top: 50px; text-align: center; " >
+<%= form_for("user", :url => user_session_path) do |f| %>
+<table  >
+<tr  >
+  <td >Name</td>
+  <td >Passwort</td>
+  <td><%= f.label :remember_me %></td>
+</tr> 
+<tr >
+  <td ><%= f.text_field :username %></td>
+  <td><%= f.password_field :password %></td>
+  <td><%= f.check_box :remember_me %>
+  </td>
+</tr>  
+</table>
+
+  
+  <%= f.submit 'Sign in' %>
+  
+<% end %>
+</div>
