@@ -32,7 +32,7 @@ gem 'kaminari'
 gem 'twitter'
 gem "rakismet"
 gem 'devise'
-
+gem 'cancan'
 
 
 # To use ActiveModel has_secure_password

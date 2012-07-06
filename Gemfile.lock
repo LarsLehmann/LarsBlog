@@ -48,6 +48,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    cancan (1.6.8)
     ckeditor (3.7.1)
       mime-types
       orm_adapter
@@ -166,6 +167,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   ckeditor (= 3.7.1)
   coffee-rails (~> 3.2.1)
   devise

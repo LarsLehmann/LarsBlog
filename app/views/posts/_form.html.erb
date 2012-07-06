@@ -1,8 +1,12 @@
 
-  
+  <% if user_signed_in? %>
 <%= semantic_form_for @post, :html => { :class => '' } do |f| %>
     <%= f.input :title, :label => false, :input_html =>{:class => "span9"} %>
     <%= f.input :body, :label => false, :input_html =>{:class => "span9"}, :as => :ckeditor %>
+    
+      <%= f.input :username,  :label => false, :input_html => {:class => "input-mini uneditable-input", :value => current_user.username} , :as => :hidden %>
+
+   
 
     
       
@@ -12,7 +16,11 @@
         <% end %>
 
       
+
       
     
 <% end %>
+          <% else %>
+          404 :)
 
+<% end %>

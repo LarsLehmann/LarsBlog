@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Location:</b>
+  <%= @show.location %>
+</p>
+
+<p>
+  <b>Datum:</b>
+  <%= @show.showdate %>
+</p>
+
+<p>
+  <b>Support:</b>
+  <%= @show.support %>
+</p>
+
+<p>
+  <b>Eintritt:</b>
+  <%= @show.eintritt %>
+</p>
+
+
+<%= link_to 'Edit', edit_show_path(@show) %> |
+<%= link_to 'Back', shows_path %>

@@ -6,6 +6,7 @@
     <span class="created_at span9">
       <%= link_to(post.comments.count.to_s + ' Kommentare      ',"/posts/#{post.id.to_s}#Kom" ) %>&nbsp;&nbsp;&nbsp;
         <%= post.created_at.to_s(:long) %>
+        <%= 'von ' + post.username.to_s %>
 
        
       

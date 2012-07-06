@@ -6,7 +6,24 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username,  :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email,  :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
-  attr_accessor :username
+  
+  #def self.current
+   # Thread.current[:user]
+  #end
+
+  #def self.current=(user)
+   # Thread.current[:user] = user
+  #end
+   def has_role? (rolename)
+    if 
+     role == rolename.to_s
+     true
+     else
+     false
+     end 
+   end
+
+
 end

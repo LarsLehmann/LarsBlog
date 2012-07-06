@@ -1,9 +1,11 @@
 
 class PostsController < ApplicationController
+  authorize_resource
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.page(params[:page])
+    @shows = Show.all
 
     respond_to do |format|
       format.html  #index.html.erb
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    unauthorized! if cannot? :manage, @post
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,12 +39,14 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    unauthorized! if cannot? :manage, @post
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    unauthorized! if cannot? :manage, @post
 
     respond_to do |format|
       if @post.save
@@ -59,6 +64,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    unauthorized! if cannot? :manage, @post
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -76,6 +82,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    unauthorized! if cannot? :manage, @post
 
     respond_to do |format|
       format.html { redirect_to posts_url }
@@ -83,6 +90,10 @@ class PostsController < ApplicationController
     
   
     end
+
+  def role?(role)
+    return !!self.roles.find_by_name(role.to_s.camelize)
+   end
   end
   
 end

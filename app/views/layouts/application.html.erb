@@ -26,7 +26,7 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
   <body>
-
+   
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -35,12 +35,39 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Lieutenant! Lieutenant!</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+          <a class="brand" href="/">Lieutenant! Lieutenant!</a>
+          <div class="container nav-collapse" style="text-align: right;">
+            <ul class="nav" >
+              <div style="text-align:right;">
+             
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <a href="http://www.facebook.com/LieutenantLieutenant" rel="nofollow" target="_blank">
+              <%= image_tag 'fb.jpg' %>
+
+              </a>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -52,7 +79,10 @@
         <div class="span9 well" style="margin-left: -1px; padding-right: 7px; margin-right: -16px; background-color: #FBFAFF; padding-left: 7px; ">
           
           <img width ="940px" src =  "http://www.imgbox.de/users/public/images/d7LXUW7cVj.jpg">
+          <%= debug flash %>
           <div style=" word-wrap: normal ;">
+
+            
             <%= yield %>
             
 
@@ -105,10 +135,21 @@ new TWTR.Widget({
           
           </div>  
           <div class="well">
+            <%= yield :shows %><br />
+             <% if can? :manage, @shows %>
+              <%= link_to 'Neue Show', new_show_path %><br />
+              <%= link_to 'Löschen / Editieren', shows_path %>
+            <% end %>
+
+          </div>  
+
+          <% if user_signed_in? %>
+          <div class="well">
             <ul class="unstyled">
               <%= yield :adminlinks %>
             </ul>
           </div>
+          <% end %>
         </div>
       </div><!--/row--> 
     </div> <!-- /container --> 

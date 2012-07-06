@@ -5,12 +5,31 @@
    
   <% end %>
 
+  <% content_for :shows do %>
+    <h2 style="text-align: center;" >
+      Shows <br />
+    </h2>
+    <%= render @shows %>
+
+
+  <% end %>
+
 
 <%= content_for :adminlinks do %>
-  <li><%= link_to('Neuer Eintrag',
-            new_post_path,
-            :class => 'btn btn-success btn-mini') %>
+  <li>
+    <div style="text-align: center;" >
+      ADMINBAR!
+    </div>
+    <%= link_to('Neuer Post',
+            new_post_path) %>
   </li>
+  <% if user_signed_in? %>
+  <li>
+   <div>Angemeldet als <%= current_user.username %>  </div>
+  <%= link_to('Logout', destroy_user_session_path, :method => :get) %>        
+  </li>
+
+  <% end %>
 
 <% end %>
 <%= paginate @posts %>
