@@ -1,6 +1,9 @@
 
 class PostsController < ApplicationController
   authorize_resource
+  @posts_title       = 'Member Login'
+@posts_description = 'Member login page.'
+@posts_keywords    = 'Site, Login, Members'
   # GET /posts
   # GET /posts.json
   def index
@@ -10,6 +13,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html  #index.html.erb
       format.json { render json: @posts }
+      format.atom
     end
   end
 
@@ -94,6 +98,15 @@ class PostsController < ApplicationController
   def role?(role)
     return !!self.roles.find_by_name(role.to_s.camelize)
    end
-  end
+
+   
+   @posts = Post.all(:select => "title", :order => "posted_at DESC", :limit => 20) 
+
+    respond_to do |format|
+    format.rss { render :layout => false }
+    
+   end
+
   
+  end
 end

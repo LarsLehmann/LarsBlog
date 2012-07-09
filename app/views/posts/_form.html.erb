@@ -1,4 +1,7 @@
-
+<% set_meta_tags :noindex => true %>
+ <meta name="robots" content="noindex" />
+<% set_meta_tags :noindex => 'googlebot' %>
+ <meta name="googlebot" content="noindex" />
   <% if user_signed_in? %>
 <%= semantic_form_for @post, :html => { :class => '' } do |f| %>
     <%= f.input :title, :label => false, :input_html =>{:class => "span9"} %>

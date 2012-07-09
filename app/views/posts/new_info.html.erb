@@ -1,3 +1,7 @@
+<% set_meta_tags :noindex => true %>
+# <meta name="robots" content="noindex" />
+<% set_meta_tags :noindex => 'googlebot' %>
+# <meta name="googlebot" content="noindex" />
 <%- model_class = @post.class -%>
 <div class="page-header">
   <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,

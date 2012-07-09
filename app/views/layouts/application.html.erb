@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Larsblog" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Lieutenant! Lieutenant!" %></title>
     <%= csrf_meta_tags %>
+    <link rel="alternate" type="application/atom+xml" title="Lieutenant!" href="<%= posts_path(:atom) %>">
+    <%= display_meta_tags :site => 'Lieutenant! Lieutenant!' %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -37,35 +39,18 @@
           </a>
           <a class="brand" href="/">Lieutenant! Lieutenant!</a>
           <div class="container nav-collapse" style="text-align: right;">
-            <ul class="nav" >
-              <div style="text-align:right;">
+            <ul class="nav pull-center" >
+              <div class="pull-right">
              
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
                  <a href="http://www.facebook.com/LieutenantLieutenant" rel="nofollow" target="_blank">
               <%= image_tag 'fb.jpg' %>
 
               </a>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
+             <%= link_to( image_tag('rss2.jpg'), posts_path(:atom)) %>
+           
+
             </div>
               
             </ul>
@@ -79,8 +64,9 @@
         <div class="span9 well" style="margin-left: -1px; padding-right: 7px; margin-right: -16px; background-color: #FBFAFF; padding-left: 7px; ">
           
           <img width ="940px" src =  "http://www.imgbox.de/users/public/images/d7LXUW7cVj.jpg">
-          <%= debug flash %>
+        
           <div style=" word-wrap: normal ;">
+            <%= display_meta_tags %>
 
             
             <%= yield %>

@@ -33,6 +33,7 @@ gem 'twitter'
 gem "rakismet"
 gem 'devise'
 gem 'cancan'
+gem 'meta-tags', :require => 'meta_tags'
 
 
 # To use ActiveModel has_secure_password

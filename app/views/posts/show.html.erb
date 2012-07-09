@@ -18,6 +18,8 @@
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
   <% end %>
+  <% set_meta_tags :keywords => truncate(@post.body, :length => 255 ) %>
+  <% set_meta_tags :title => @post.title %>
   <% if @post.comments.count >= 5 %>
   <h2 style="margin-top: 50px;"><a name="Kom"></a>
     <a href="#Kom2">Kommentar schreiben</a></h2>
